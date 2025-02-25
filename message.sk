@@ -1,6 +1,1 @@
-command /ta [<text>]:
-    permission: op
-    trigger:
-        broadcast "&e&lHeatexMc &8&l|&f %colored arg-1%"
-        send title "&e&lMatrixmc" with subtitle "%colored arg-1%" to all players for 2 seconds
-        play sound "entity.experience_orb.pickup" with volume 1 and pitch 1 at all players for all players
+
