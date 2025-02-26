@@ -1,0 +1,16 @@
+{
+    "name": "Heatex Projects",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "SaYrZ",
+    "description": "Minecraft status bot just write mc to view the status of our server",
+    "dependencies": {
+      "axios": "^1.7.9",
+      "discord.js": "^14.16.3",
+      "dotenv": "^16.4.7"
+    }
+  }
