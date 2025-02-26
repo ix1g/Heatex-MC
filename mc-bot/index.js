@@ -41,7 +41,7 @@ client.on('messageCreate', async (message) => {
                         { name: 'Players', value: `\`${playersOnline}\`/\`${playersMax}\`:video_game:`, inline: true },
                         { name: 'Status', value: '`Online`', inline: true }, // Status info if it's online or not
                     )
-                    .setColor('#00FF00'); // color of the online status
+                    .setColor('#fbab60'); // color of the online status
             } else {
                 embed
                     .addFields(
