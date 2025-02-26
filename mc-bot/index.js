@@ -7,8 +7,6 @@
 
 Original Repo: https://github.com/ix1g/Mc-Bot
 License: MIT
-Read: https://github.com/ix1g/heatex/blob/main/README.md
-
 */ 
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
@@ -26,11 +24,11 @@ client.on('messageCreate', async (message) => {
 
     if (message.content.toLowerCase() === 'mc') {
         try {
-            const response = await axios.get('https://api.mcsrvstat.us/2/vexmc.xyz'); // Here's the API this api have v3 you can search this API
+            const response = await axios.get('https://api.mcsrvstat.us/2/46.202.82.164:1043'); // Here's the API this api have v3 you can search this API
             const data = response.data;
 
             const embed = new EmbedBuilder()
-                .setTitle('play.vexmc.xyz') // PUT YOUR EMBED TITLE LIKE "Minecraft Server Status" Or what you want
+                .setTitle('play.heatexmc.net') // PUT YOUR EMBED TITLE LIKE "Minecraft Server Status" Or what you want
                 .setTimestamp(); // All right's reserved to Vex Extra
 
             if (data.online) {
@@ -39,7 +37,7 @@ client.on('messageCreate', async (message) => {
 
                 embed
                     .addFields(
-                        { name: 'Server IP', value: '`play.vexmc.xyz:25599`', inline: true }, // Please make sure you change the server IP
+                        { name: 'Server IP', value: '`play.heatexmc.net`', inline: true }, // Please make sure you change the server IP
                         { name: 'Players', value: `\`${playersOnline}\`/\`${playersMax}\`:video_game:`, inline: true },
                         { name: 'Status', value: '`Online`', inline: true }, // Status info if it's online or not
                     )
@@ -49,16 +47,16 @@ client.on('messageCreate', async (message) => {
                     .addFields(
                         { name: 'Status', value: '`Offline`', inline: true }, // same thing of the status info
                         { name: 'Players', value: '`0/0`', inline: true }, // players do it NONE if you want 
-                        { name: 'Server IP', value: '`play.vexmc.xyz`', inline: true } // Change the ip if you want
+                        { name: 'Server IP', value: '`play.heatexmc.net`', inline: true } // Change the ip if you want
                     )
                     .setColor('#FF0000'); // color of the offline status
             }
             embed.setFooter({
-                text: 'Server Ip here', // Embed Footer put your server name or what ever you want
-                iconURL: 'https://images-ext-1.discordapp.net/external/QyJx7ViqrOuGSvhkck_jHe4r6C8_X8ZQn-0VEd-dd00/%3Fsize%3D1024/https/cdn.discordapp.com/icons/1192877033856970844/a_cb3b3728c421f99bef1415f4f67d9e06.gif'
+                text: 'Play.heatexMc.net', // Embed Footer put your server name or what ever you want
+                iconURL: 'https://media.discordapp.net/attachments/1332787349322469506/1344431335376158812/Brown_Bold_Background_Instagram_Post_1.png?ex=67c0e2c0&is=67bf9140&hm=8d6ab379101ae7121c082fd6418b599467e50baa8af40ff78be5a6904a8e831b&=&format=webp&quality=lossless&width=469&height=469'
             }); // Footer icon here change it
-            embed.setImage('https://api.loohpjames.com/serverbanner.png?ip=vexmc.xyz'); // Image of the Embed change it to "https://api.loohpjames.com/serverbanner.png?ip=your-ip" change the your ip to like "https://api.loohpjames.com/serverbanner.png?ip=play.matrixmc.cc"
-            embed.setThumbnail('https://api.mcsrvstat.us/icon/vexmc.xyz'); // Change the ip of this
+            embed.setImage('https://api.loohpjames.com/serverbanner.png?ip=46.202.82.164:1043'); // Image of the Embed change it to "https://api.loohpjames.com/serverbanner.png?ip=your-ip" change the your ip to like "https://api.loohpjames.com/serverbanner.png?ip=play.matrixmc.cc"
+            embed.setThumbnail('https://api.mcsrvstat.us/icon/46.202.82.164:1043'); // Change the ip of this
             message.channel.send({ embeds: [embed] });
         } catch (error) { // All right's reserved to Vex Extra
             message.channel.send('فشل المحاولة يجب الاتصال بالمبرمج.'); // Error message "في حال صار خطأ كلمني SaYrZ","if something wrong happen talk to me SAYRZ"
