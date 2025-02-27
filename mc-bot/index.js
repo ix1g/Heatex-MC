@@ -15,7 +15,6 @@ const axios = require('axios');
 require('dotenv').config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
-const prefix = '!'; // Prefix of the bot ASAP we will make it have more command and more interactions
 
 client.on('ready', () => {
     console.log(`Bot logges as: ${client.user.tag}`); // All right's reserved to Vex Extra
@@ -65,6 +64,7 @@ client.on('messageCreate', async (message) => {
             console.error(error); 
         }
     }
+
 });
 
 client.login(process.env.BOT_TOKEN); // Put it into the .env file
