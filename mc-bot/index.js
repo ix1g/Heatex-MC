@@ -25,7 +25,7 @@ client.on('messageCreate', async (message) => {
 
     if (message.content.toLowerCase() === 'mc') {
         try {
-            const response = await axios.get('https://api.mcsrvstat.us/2/46.202.82.164:1043'); // Here's the API this api have v3 you can search this API
+            const response = await axios.get('https://api.mcsrvstat.us/3/'); // Here's the API this api have v3 you can search this API
             const data = response.data;
 
             const embed = new EmbedBuilder()
