@@ -7,6 +7,7 @@
 
 Original Repo: https://github.com/ix1g/Mc-Bot
 License: MIT
+Hosted
 */ 
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
@@ -43,7 +44,7 @@ client.on('messageCreate', async (message) => {
                     )
                     .setColor('#fbab60'); // color of the online status
             } else {
-                embed
+                embed // Last thing was edited
                     .addFields(
                         { name: 'Status', value: '`Offline`', inline: true }, // same thing of the status info
                         { name: 'Players', value: '`0/0`', inline: true }, // players do it NONE if you want 
