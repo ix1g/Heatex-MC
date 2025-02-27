@@ -1,3 +1,15 @@
+/* 
+███    ███  █████  ██████  ███████     ██████  ██    ██     ███████  █████  ██    ██ ██████  ███████ 
+████  ████ ██   ██ ██   ██ ██          ██   ██  ██  ██      ██      ██   ██  ██  ██  ██   ██    ███  
+██ ████ ██ ███████ ██   ██ █████       ██████    ████       ███████ ███████   ████   ██████    ███   
+██  ██  ██ ██   ██ ██   ██ ██          ██   ██    ██             ██ ██   ██    ██    ██   ██  ███    
+██      ██ ██   ██ ██████  ███████     ██████     ██        ███████ ██   ██    ██    ██   ██ ███████ 
+
+Original Repo: https://github.com/ix1g/Mc-Bot
+License: MIT
+Hosted On: https://bssr-nodes.com
+*/ 
+
 const axios = require('axios');
 const { Client, GatewayIntentBits, EmbedBuilder, PermissionsBitField, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const dotenv = require('dotenv');

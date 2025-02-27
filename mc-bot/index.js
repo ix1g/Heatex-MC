@@ -7,7 +7,7 @@
 
 Original Repo: https://github.com/ix1g/Mc-Bot
 License: MIT
-Hosted
+Hosted On: https://bssr-nodes.com
 */ 
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
