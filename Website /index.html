@@ -1,222 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeatexMC</title>
-<meta property="og:title" content="HeatexMc - Minecraft Server">
-<link rel="icon" type="image/png" href="heatexmc.png">
-<meta property="og:description" content="Join HeatexMc, a 24/7 hosted Minecraft server featuring SkyPvP, RedPvP, and more! Play now at play.heatexmc.net and explore endless adventures.">
-<meta property="og:image" content="heatexmc.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:url" content="https://heatexmc.net">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="HeatexMc">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@HeatexMc">
-<meta name="twitter:title" content="HeatexMc - Minecraft Server">
-<meta name="twitter:description" content="A top-tier Minecraft server with SkyPvP, RedPvP, and more. Join us at play.heatexmc.net and start your adventure today!">
-<meta name="twitter:image" content="heatexmc.png">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:secure_url" content="heatexmc.png">
-  <link href="https://fonts.googleapis.com/css2?family=Minecraft&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HeatexMC - Minecraft Server</title>
+
+    <link rel="icon" type="image/png" href="https://placehold.co/32x32/FF9940/0A0E14?text=H" onerror="this.src='https://placehold.co/32x32/cccccc/ffffff?text=H'">
+    <meta name="description" content="Join HeatexMc, a 24/7 hosted Minecraft server featuring Survival, PvP, and more! Play now at play.heatexmc.net and explore endless adventures.">
+    <meta property="og:title" content="HeatexMc - Minecraft Server">
+    <meta property="og:description" content="Join HeatexMc, a 24/7 hosted Minecraft server featuring Survival, PvP, and more! Play now at play.heatexmc.net.">
+    <meta property="og:image" content="https://placehold.co/1200x630/0A0E14/FF9940?text=HeatexMC" onerror="this.src='https://placehold.co/1200x630/cccccc/ffffff?text=Placeholder'">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://heatexmc.net"> <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HeatexMc">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HeatexMc - Minecraft Server">
+    <meta name="twitter:description" content="A top-tier Minecraft server with Survival, PvP, and more. Join us at play.heatexmc.net!">
+    <meta name="twitter:image" content="https://placehold.co/1200x630/0A0E14/FF9940?text=HeatexMC" onerror="this.src='https://placehold.co/1200x630/cccccc/ffffff?text=Placeholder'">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
-<body>
-  <header>
-    <nav class="container nav-container">
-      <h1 class="minecraft-font">HeatexMC</h1>
-      <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-      <div class="nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#news" class="nav-link">News</a>
-        <a href="#games" class="nav-link">Games</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="#join" class="nav-link">Join</a>
-      </div>
-    </nav>
-  </header>
-  <!-- Copy Notification (for join section copy) hey if you are viewing source code theres nothing special -->
-  <div id="copy-notification">
-    <span id="notification-message" class="message"></span>
-    <div id="progress-bar"></div>
-    <span id="dismiss-icon">✖</span>
-  </div>
+<body class="bg-htx-bg text-htx-text font-sans leading-relaxed overflow-x-hidden">
 
-  <section id="home" class="hero">
-    <div class="container">
-      <h1 class="server-title minecraft-font">HEATEXMC</h1>
-      <!-- Get Started button scrolls to next section -->
-      <a href="#news" class="get-started-btn">Get Started</a>
-      <div class="social-links">
-        <a href="https://discord.gg/heatex" class="social-link" target="_blank">
-          <i class="fab fa-discord"></i>
-        </a>
-        <a href="https://github.com/ix1g/heatex" class="social-link" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
+    <div id="loading-overlay">
+        <div class="skeleton-wrapper space-y-8 p-4">
+            <div class="flex justify-between items-center h-10"><div class="h-6 w-32 skeleton"></div><div class="flex space-x-4"><div class="h-4 w-16 skeleton hidden md:block"></div><div class="h-4 w-16 skeleton hidden md:block"></div><div class="h-4 w-16 skeleton hidden md:block"></div></div><div class="h-6 w-6 skeleton md:hidden"></div></div>
+            <div class="space-y-6 pt-20 text-center"><div class="h-10 w-3/4 mx-auto skeleton"></div><div class="h-4 w-full max-w-xl mx-auto skeleton"></div><div class="h-4 w-5/6 max-w-lg mx-auto skeleton"></div><div class="h-12 w-40 mx-auto skeleton mt-4"></div></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-10"><div class="h-40 skeleton"></div><div class="h-40 skeleton"></div><div class="h-40 skeleton hidden md:block"></div></div>
+        </div>
     </div>
-  </section>
 
-  <section id="news" class="section-divider">
-    <div class="container">
-      <h2 class="section-title">Latest News</h2>
-      <div class="news-card">
-        <span class="news-tag minecraft-font">NEWS</span>
-        <h2>Opening Celebration!</h2>
-        <p class="text-accent">March 8th - 9th 2025</p>
-        <p>Join us for our spectacular launch event with exclusive rewards and competitions!</p>
-      </div>
-    </div>
-  </section>
+    <header class="fixed top-0 left-0 w-full bg-htx-bg/95 backdrop-blur-md z-50 border-b border-htx-border">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+            <a href="#home" class="text-2xl font-bold minecraft-font text-htx-accent hover:text-htx-highlight transition duration-300">HeatexMC</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2">Home <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#games" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2">Games <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#features" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2">Features <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#team" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2">Team <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+                <a href="#join" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2">Join <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+                <a href="/changes" class="text-htx-text hover:text-htx-accent transition duration-300 relative group py-2"> Changes <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-htx-accent group-hover:w-full transition-all duration-300"></span></a>
+            </div>
+            <button id="menu-toggle" class="md:hidden text-htx-text hover:text-htx-accent text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-htx-bg/98 border-b border-htx-border animate-menuSlide origin-top">
+            <div class="flex flex-col space-y-4 p-5">
+                <a href="#home" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Home</a>
+                <a href="#games" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Games</a>
+                <a href="#features" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Features</a>
+                <a href="#team" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Team</a>
+                <a href="#join" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Join</a>
+                <a href="/changes" class="block text-htx-text hover:text-htx-accent transition duration-300 py-2 text-center mobile-link">Changes</a>
+            </div>
+        </div>
+    </header>
 
-  <section id="games" class="section-divider">
-    <div class="container">
-      <h2 class="section-title">Our Game Modes</h2>
-      <div class="games-grid">
-        <div class="game-card">
-          <div class="game-card-content">
-            <h3 class="game-title">SkyPvP</h3>
-            <p class="game-mode">Classic Combat</p>
-            <p>Battle opponents in our epic SkyPvP arena with custom kits, enchantments, and upgrades. Compete for weekly prizes and climb the leaderboards!</p>
-            <a href="#join" class="join-btn">Play Now</a>
-          </div>
-        </div>
-        <div class="game-card">
-          <div class="game-card-content">
-            <h3 class="game-title">RedPvP</h3>
-            <p class="game-mode">Redstone Combat</p>
-            <p>Unique PvP experience combining combat skills with redstone mechanics. Create (SOON), and custom weapons like AXES Bow with Miner area, in this game.</p>
-            <a href="#join" class="join-btn">Play Now</a>
-          </div>
-        </div>
-        <div class="game-card">
-          <div class="game-card-content">
-            <h3 class="game-title">BoxPvP</h3>
-            <p class="game-mode">Modern Combat</p>
-            <p>Coming soon... Owned by Sayko_</p>
-            <a href="#join" class="join-btn">Play Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div id="toast-container"></div>
 
-  <section id="features" class="section-divider">
-    <div class="container">
-      <h2 class="section-title">Server Features</h2>
-      <div class="features-container">
-        <div class="features-grid">
-          <div class="feature-item">
-            <i class="fas fa-shield-alt feature-icon"></i>
-            <h3 class="feature-title">Anti-Cheat</h3>
-            <p>Advanced anti-cheat system ensures fair gameplay for everyone</p>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-code feature-icon"></i>
-            <h3 class="feature-title">Custom Plugins</h3>
-            <p>Unique gameplay features through our custom-developed plugins</p>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-server feature-icon"></i>
-            <h3 class="feature-title">High Performance</h3>
-            <p>Premium hardware for lag-free gaming experience</p>
-          </div>
-          <div class="feature-item">
-            <i class="fas fa-users feature-icon"></i>
-            <h3 class="feature-title">Active Community</h3>
-            <p>Friendly players and staff with regular events</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <main>
+        <section id="home" class="pt-32 pb-16 md:pt-48 md:pb-24 text-center relative overflow-hidden min-h-screen flex items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-htx-bg/50 via-transparent to-htx-bg/50 opacity-80 z-0"></div>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold minecraft-font text-htx-accent mb-6 animate-glow">HEATEXMC</h1>
+                <p class="text-lg md:text-xl text-htx-secondary mb-10 max-w-2xl mx-auto">Your next-level Minecraft adventure starts here. Explore unique game modes, a vibrant community, and lag-free performance.</p>
+                <a href="#games" class="inline-block bg-gradient-to-r from-htx-accent to-htx-highlight text-htx-bg font-bold text-lg py-4 px-10 rounded-full shadow-lg shadow-htx-accent/30 btn-hover-effect">Get Started</a>
+                <div class="mt-12 flex justify-center space-x-6">
+                    <a href="https://discord.gg/heatex" target="_blank" rel="noopener noreferrer" class="text-htx-secondary hover:text-htx-accent transition duration-300 text-3xl transform hover:scale-110"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/ix1g/heatex" target="_blank" rel="noopener noreferrer" class="text-htx-secondary hover:text-htx-accent transition duration-300 text-3xl transform hover:scale-110"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
 
-  <section id="team" class="section-divider">
-    <div class="container">
-      <h2 class="section-title">Elite Team</h2>
-      <div class="team-grid">
-        <div class="team-card">
-          <h3>0mGGS</h3>
-          <p class="role">Founder</p>
-          <p>Leading the vision and direction of HeatexMC since 2021. Passionate about creating the best Minecraft experience.</p>
-        </div>
-        <div class="team-card">
-          <h3>SaYrZ</h3>
-          <p class="role">Staff & Community Manager</p>
-          <p>Ensuring our community thrives through, mderation, and player engagement.</p>
-        </div>
-        <div class="team-card">
-          <h3>A302</h3>
-          <p class="role">Leader Developers</p>
-          <p>The coding genius behind our custom plugins and unique gameplay mechanics.</p>
-        </div>
-        <div class="team-card">
-          <h3>Three</h3>
-          <p class="role">Leader Builders</p>
-          <p>Creating breathtaking structures and landscapes that make our server visually stunning and immersive.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <div class="w-4/5 h-px bg-gradient-to-r from-transparent via-htx-border to-transparent mx-auto my-16 md:my-24"></div>
 
-  <section id="join">
-    <div class="container">
-      <h2 class="section-title">Join Us Today</h2>
-      <div class="news-card">
-        <h3>Ready for an adventure?</h3>
-        <p>Join thousands of players on HeatexMC for the ultimate Minecraft experience!</p>
-        <div class="ip-box" onclick="copyIP()" style="margin-top: 2rem;">
-          play.heatexmc.net
-        </div>
-      </div>
-    </div>
-  </section>
+        <section id="games" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-htx-secondary mb-12">Game Modes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="game-card-interactive bg-htx-card-bg border border-htx-border rounded-xl overflow-hidden shadow-lg flex flex-col backdrop-blur-sm">
+                        <div class="game-card-inner p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-semibold text-htx-secondary mb-2">Survival</h3>
+                            <p class="text-sm text-htx-highlight mb-4">Modern Hardcore Survival</p>
+                            <p class="text-htx-text mb-6 flex-grow">Join HeatexMC Survival, the hardest Minecraft survival experience! Face powerful bosses, craft rare items, and test your skills.</p>
+                            <a href="/survival/" class="mt-auto inline-block text-center bg-htx-accent/80 hover:bg-htx-accent text-htx-bg font-semibold py-2 px-6 rounded-lg transition duration-300 transform hover:scale-105">Play Now</a>
+                        </div>
+                    </div>
+                    <div class="game-card-interactive bg-htx-card-bg border border-htx-border rounded-xl overflow-hidden shadow-lg flex flex-col backdrop-blur-sm opacity-70">
+                         <div class="game-card-inner p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-semibold text-htx-secondary mb-2">RedPvP</h3>
+                            <p class="text-sm text-htx-highlight mb-4">Redstone Combat - Coming Soon</p>
+                            <p class="text-htx-text mb-6 flex-grow">Intense Redstone-based PvP battles are under development. Prepare for unique mechanics! Owned by a302.</p>
+                            <button class="mt-auto inline-block text-center bg-gray-600 text-gray-400 font-semibold py-2 px-6 rounded-lg cursor-not-allowed">Coming Soon</button>
+                        </div>
+                    </div>
+                    <div class="game-card-interactive bg-htx-card-bg border border-htx-border rounded-xl overflow-hidden shadow-lg flex flex-col backdrop-blur-sm opacity-70">
+                         <div class="game-card-inner p-6 flex flex-col flex-grow">
+                            <h3 class="text-2xl font-semibold text-htx-secondary mb-2">SkyPvP</h3>
+                            <p class="text-sm text-htx-highlight mb-4">Aerial Combat - Coming Soon</p>
+                            <p class="text-htx-text mb-6 flex-grow">Take the fight to the skies! Fast-paced PvP action on floating islands. Owned by Sayko_.</p>
+                            <button class="mt-auto inline-block text-center bg-gray-600 text-gray-400 font-semibold py-2 px-6 rounded-lg cursor-not-allowed">Coming Soon</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3 class="minecraft-font">HeatexMC</h3>
-          <p>Next-generation Minecraft server providing unique gameplay experiences since 2021.</p>
-          <div class="social-links" style="margin-top: 1.5rem; justify-content: flex-start;">
-            <a href="https://discord.gg/heatex" class="social-link" target="_blank">
-              <i class="fab fa-discord"></i>
-            </a>
-            <a href="https://github.com/ix1g/heatex" class="social-link" target="_blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
+         <div class="w-4/5 h-px bg-gradient-to-r from-transparent via-htx-border to-transparent mx-auto my-16 md:my-24"></div>
+
+        <section id="features" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-htx-secondary mb-12">Server Features</h2>
+                <div class="bg-htx-card-bg/80 border border-htx-border rounded-xl p-8 md:p-12 shadow-xl backdrop-blur-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                        <div class="feature-item-enhanced">
+                            <i class="fas fa-shield-alt text-htx-accent feature-icon-enhanced"></i>
+                            <h3 class="text-xl font-semibold text-htx-secondary mb-2">Anti-Cheat</h3>
+                            <p class="text-sm text-htx-text">Advanced anti-cheat system ensures fair gameplay for everyone.</p>
+                        </div>
+                        <div class="feature-item-enhanced">
+                            <i class="fas fa-code text-htx-accent feature-icon-enhanced"></i>
+                            <h3 class="text-xl font-semibold text-htx-secondary mb-2">Custom Plugins</h3>
+                            <p class="text-sm text-htx-text">Unique gameplay features through our custom-developed plugins.</p>
+                        </div>
+                        <div class="feature-item-enhanced">
+                            <i class="fas fa-server text-htx-accent feature-icon-enhanced"></i>
+                            <h3 class="text-xl font-semibold text-htx-secondary mb-2">High Performance</h3>
+                            <p class="text-sm text-htx-text">Premium hardware for a smooth, lag-free gaming experience.</p>
+                        </div>
+                        <div class="feature-item-enhanced">
+                             <i class="fas fa-users text-htx-accent feature-icon-enhanced"></i>
+                            <h3 class="text-xl font-semibold text-htx-secondary mb-2">Active Community</h3>
+                            <p class="text-sm text-htx-text">Friendly players and staff with regular events and activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-4/5 h-px bg-gradient-to-r from-transparent via-htx-border to-transparent mx-auto my-16 md:my-24"></div>
+
+        <section id="team" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-htx-secondary mb-12">Meet the Elite Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-htx-card-bg border border-htx-border rounded-xl p-6 text-center shadow-lg card-hover-effect backdrop-blur-sm">
+                         <div class="w-24 h-24 rounded-full bg-htx-highlight mx-auto mb-4 flex items-center justify-center text-htx-bg font-bold text-3xl">mGGS</div>
+                        <h3 class="text-xl font-semibold text-htx-secondary">0mGGS</h3><p class="text-htx-accent font-medium mb-3">Founder</p><p class="text-sm text-htx-text">Leading the vision and direction of HeatexMC since 2021.</p>
+                    </div>
+                    <div class="bg-htx-card-bg border border-htx-border rounded-xl p-6 text-center shadow-lg card-hover-effect backdrop-blur-sm">
+                         <div class="w-24 h-24 rounded-full bg-htx-highlight mx-auto mb-4 flex items-center justify-center text-htx-bg font-bold text-3xl">SYZ</div>
+                        <h3 class="text-xl font-semibold text-htx-secondary">SaYrZ</h3><p class="text-htx-accent font-medium mb-3">Staff & Community Manager</p><p class="text-sm text-htx-text">Ensuring our community thrives through moderation and engagement.</p>
+                    </div>
+                    <div class="bg-htx-card-bg border border-htx-border rounded-xl p-6 text-center shadow-lg card-hover-effect backdrop-blur-sm">
+                         <div class="w-24 h-24 rounded-full bg-htx-highlight mx-auto mb-4 flex items-center justify-center text-htx-bg font-bold text-3xl">A302</div>
+                        <h3 class="text-xl font-semibold text-htx-secondary">a302</h3><p class="text-htx-accent font-medium mb-3">Lead Developer</p><p class="text-sm text-htx-text">The coding genius behind our custom plugins and mechanics.</p>
+                    </div>
+                    <div class="bg-htx-card-bg border border-htx-border rounded-xl p-6 text-center shadow-lg card-hover-effect backdrop-blur-sm">
+                        <div class="w-24 h-24 rounded-full bg-htx-highlight mx-auto mb-4 flex items-center justify-center text-htx-bg font-bold text-3xl">THREE</div>
+                        <h3 class="text-xl font-semibold text-htx-secondary">Three</h3><p class="text-htx-accent font-medium mb-3">Lead Builder</p><p class="text-sm text-htx-text">Creating breathtaking structures and immersive landscapes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="w-4/5 h-px bg-gradient-to-r from-transparent via-htx-border to-transparent mx-auto my-16 md:my-24"></div>
+
+        <section id="join" class="py-16 md:py-24 text-center">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-htx-secondary mb-6">Join Us Today!</h2>
+                 <div class="max-w-2xl mx-auto bg-gradient-to-br from-htx-card-bg to-htx-bg border border-htx-border rounded-xl p-8 shadow-xl backdrop-blur-sm">
+                    <h3 class="text-2xl font-semibold text-htx-secondary mb-4">Ready for an Adventure?</h3>
+                    <p class="text-htx-text mb-8">Join thousands of players on HeatexMC for the ultimate Minecraft experience! Click below to copy the server IP.</p>
+                    <button id="copy-ip-button" class="inline-block bg-gradient-to-r from-htx-accent to-htx-highlight text-htx-bg font-bold text-lg py-4 px-10 rounded-full shadow-lg shadow-htx-accent/30 btn-hover-effect cursor-pointer">
+                        play.heatexmc.net <i class="fas fa-copy ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-black/50 border-t border-htx-border mt-16 md:mt-24 pt-12 pb-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-8">
+                <div class="md:col-span-1 lg:col-span-2">
+                    <h3 class="text-2xl font-bold minecraft-font text-htx-accent mb-4">HeatexMC</h3>
+                    <p class="text-sm text-htx-text mb-4">Next-generation Minecraft server providing unique gameplay experiences since 2021.</p>
+                    <div class="flex space-x-4">
+                         <a href="https://discord.gg/heatex" target="_blank" rel="noopener noreferrer" class="text-htx-secondary hover:text-htx-accent transition duration-300 text-2xl"><i class="fab fa-discord"></i></a>
+                         <a href="https://github.com/ix1g/heatex" target="_blank" rel="noopener noreferrer" class="text-htx-secondary hover:text-htx-accent transition duration-300 text-2xl"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-htx-secondary mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Home</a></li>
+                        <li><a href="#games" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Games</a></li>
+                        <li><a href="#features" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Features</a></li>
+                         <li><a href="#team" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Team</a></li>
+                        <li><a href="#join" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Join Server</a></li>
+                         <li><a href="/changes" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Change Logs</a></li>
+                    </ul>
+                </div>
+                 <div>
+                    <h4 class="text-lg font-semibold text-htx-secondary mb-4">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:support@heatexmc.net" class="text-sm text-htx-text hover:text-htx-accent transition duration-300 break-all">support@heatexmc.net</a></li>
+                        <li><a href="https://discord.gg/heatex" target="_blank" rel="noopener noreferrer" class="text-sm text-htx-text hover:text-htx-accent transition duration-300">Join our Discord</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-htx-border pt-6 text-center text-sm text-htx-text/70">&copy; 2025 HeatexMC. All rights reserved.</div>
         </div>
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#games">Games</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#join">Join Server</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Contact Us</h3>
-          <ul class="footer-links">
-            <li><a href="mailto:support@heatexmc.net">support@heatexmc.net</a></li>
-            <li><a href="https://discord.gg/heatex">Join our Discord</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 HeatexMC. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+    </footer>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
