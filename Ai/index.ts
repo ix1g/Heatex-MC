@@ -1,145 +1,118 @@
-import { Client, GatewayIntentBits, REST, Routes } from 'discord.js';
-import { GoogleGenerativeAI } from '@google/generative-ai';
-import dotenv from 'dotenv';
-import Tesseract from 'tesseract.js';
+import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
+import { config } from './src/config/config';
+import { aiService } from './src/utils/aiService';
+import { rateLimiter } from './src/utils/rateLimiter';
+import fs from 'fs';
+import path from 'path';
 
-dotenv.config();
+declare module 'discord.js' {
+    export interface Client {
+        commands: Collection<string, any>;
+    }
+}
 
-const client = new Client({ 
+const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds, 
-        GatewayIntentBits.GuildMessages, 
-        GatewayIntentBits.MessageContent
-    ] 
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
+    ],
 });
 
-const token = process.env.DISCORD_TOKEN;
-const aiChannelId = process.env.AI_CHANNEL_ID;
-const geminiApiKey = process.env.GEMINI_API_KEY;
+client.commands = new Collection();
 
-// Initialize Gemini AI
-const genAI = new GoogleGenerativeAI(geminiApiKey!);
-const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+// Load commands
+const commandsPath = path.join(__dirname, 'src', 'commands');
+const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.ts') || file.endsWith('.js'));
 
-let memory: Record<string, string[]> = {};
-
-// Chat history for each user
-const chatHistory: Record<string, { role: string; parts: string }[]> = {};
-
-client.once('ready', () => {
-    console.log(`Logged in as ${client.user?.tag}!`);
-});
-
-async function processImage(url: string): Promise<string> {
-    try {
-        const { data: { text } } = await Tesseract.recognize(url, 'eng');
-        return text;
-    } catch (error) {
-        console.error('Error processing image:', error);
-        throw new Error('Failed to process image');
+for (const file of commandFiles) {
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath);
+    if ('data' in command && 'execute' in command) {
+        client.commands.set(command.data.name, command);
     }
 }
 
-async function getAIResponse(userId: string, input: string): Promise<string> {
+// Load events
+const eventsPath = path.join(__dirname, 'src', 'events');
+const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.ts') || file.endsWith('.js'));
+
+for (const file of eventFiles) {
+    const filePath = path.join(eventsPath, file);
+    const event = require(filePath);
+    if (event.once) {
+        client.once(event.name, (...args) => event.execute(...args));
+    } else {
+        client.on(event.name, (...args) => event.execute(...args));
+    }
+}
+
+// Handle commands
+client.on(Events.InteractionCreate, async interaction => {
+    if (!interaction.isChatInputCommand()) return;
+
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
+
     try {
-        if (!chatHistory[userId]) {
-            chatHistory[userId] = [];
-        }
-
-        // Add user message to history
-        chatHistory[userId].push({ role: "user", parts: input });
-
-        const chat = model.startChat({
-            history: chatHistory[userId],
-            generationConfig: {
-                maxOutputTokens: 1000,
-            },
+        await command.execute(interaction);
+    } catch (error) {
+        console.error(error);
+        await interaction.reply({
+            content: 'There was an error executing this command!',
+            ephemeral: true
         });
-
-        const result = await chat.sendMessage(input);
-        const response = await result.response;
-        const responseText = response.text();
-
-        // Add AI response to history
-        chatHistory[userId].push({ role: "model", parts: responseText });
-
-        // Limit history to last 10 messages
-        if (chatHistory[userId].length > 20) {
-            chatHistory[userId] = chatHistory[userId].slice(-20);
-        }
-
-        return responseText;
-    } catch (error) {
-        console.error('Error getting AI response:', error);
-        return "Sorry, I encountered an error processing your request.";
     }
-}
+});
 
-client.on('messageCreate', async (message) => {
+// Handle messages
+client.on(Events.MessageCreate, async message => {
     if (message.author.bot) return;
 
-    const isAIChannel = message.channel.id === aiChannelId;
+    const isAIChannel = message.channel.id === config.aiChannelId;
     const isMentioned = message.mentions.has(client.user!);
 
     if (isAIChannel || isMentioned) {
+        // Check rate limit
+        if (rateLimiter.isRateLimited(message.author.id)) {
+            const timeLeft = rateLimiter.getRemainingTime(message.author.id);
+            const seconds = Math.ceil(timeLeft / 1000);
+            await message.reply(`⚠️ Please wait ${seconds} seconds before sending another message.`);
+            return;
+        }
+
         await message.channel.sendTyping();
 
         try {
             let userInput = message.content;
-            
-            // Remove bot mention from the message
             if (isMentioned) {
                 userInput = userInput.replace(/<@!\d+>/, '').trim();
             }
+
+            let response: string;
 
             // Handle image processing
             if (message.attachments.size > 0) {
                 const attachment = message.attachments.first();
                 if (attachment && attachment.contentType?.startsWith('image/')) {
-                    const extractedText = await processImage(attachment.url);
-                    userInput = `Image text: ${extractedText}\n\nPlease analyze this text: ${userInput}`;
+                    response = await aiService.processImage(
+                        attachment.url,
+                        userInput || 'Please analyze this image.'
+                    );
+                } else {
+                    response = 'I can only process image attachments.';
                 }
+            } else {
+                response = await aiService.generateResponse(message.author.id, userInput);
             }
 
-            const response = await getAIResponse(message.author.id, userInput);
             await message.reply(response);
 
         } catch (error) {
             console.error('Error processing message:', error);
-            await message.reply('Sorry, I encountered an error processing your request.');
+            await message.reply('I encountered an error processing your message. Please try again.');
         }
     }
 });
 
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isCommand()) return;
-
-    const { commandName } = interaction;
-
-    if (commandName === 'reset-memory') {
-        delete chatHistory[interaction.user.id];
-        memory[interaction.user.id] = [];
-        await interaction.reply('Memory has been reset.');
-    }
-});
-
-const commands = [
-    {
-        name: 'reset-memory',
-        description: 'Reset the bot memory for your conversations.',
-    }
-];
-
-(async () => {
-    try {
-        const rest = new REST({ version: '10' }).setToken(token!);
-        await rest.put(
-            Routes.applicationCommands(client.user?.id || 'YOUR_CLIENT_ID'),
-            { body: commands }
-        );
-    } catch (error) {
-        console.error('Error registering commands:', error);
-    }
-})();
-
-client.login(token);
+client.login(config.token);
