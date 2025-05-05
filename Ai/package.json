@@ -1,0 +1,23 @@
+{
+  "name": "discord-ai-bot",
+  "version": "1.0.0",
+  "description": "A Discord AI bot using Discord.js v14, Gemini AI, and Tesseract OCR.",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@discordjs/rest": "^1.6.0",
+    "@google/generative-ai": "^0.2.0",
+    "discord-api-types": "^0.37.34",
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.0.3",
+    "tesseract.js": "^4.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
