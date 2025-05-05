@@ -24,6 +24,10 @@ module.exports = {
                     value: 'Resets your conversation history with the AI.'
                 },
                 {
+                    name: '📚 /add-knowledge',
+                    value: 'Add custom knowledge that the AI can use in conversations.\nFormat: /add-knowledge category:"topic" key:"title" value:"information"'
+                },
+                {
                     name: '❓ /help',
                     value: 'Shows this help message.'
                 },

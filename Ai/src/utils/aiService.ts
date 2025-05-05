@@ -1,6 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { config } from '../config/config';
 import { UserChatHistory } from '../types/config';
+import { knowledgeManager } from './knowledgeManager';
 
 class AiService {
     private genAI: GoogleGenerativeAI;
@@ -20,7 +21,14 @@ class AiService {
             }
 
             const history = this.chatHistory.get(userId)!;
-            history.push({ role: "user", parts: input });
+            
+            // Get relevant knowledge
+            const relevantKnowledge = knowledgeManager.getRelevantKnowledge(input);
+            const enhancedInput = relevantKnowledge 
+                ? `Context: ${relevantKnowledge}\n\nUser Input: ${input}`
+                : input;
+
+            history.push({ role: "user", parts: enhancedInput });
 
             const chat = this.model.startChat({
                 history,
@@ -32,7 +40,7 @@ class AiService {
                 },
             });
 
-            const result = await chat.sendMessage(input);
+            const result = await chat.sendMessage(enhancedInput);
             const response = await result.response;
             const responseText = response.text();
 
