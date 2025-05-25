@@ -25,6 +25,6 @@ HeatexMc its minecraft server it have classic games and more enter from https://
 
 ## Blacklisted users
 - Zamazu ( HorexMc Owner )
--
+- AboBesher (1101516744805326918)
 -
 -
