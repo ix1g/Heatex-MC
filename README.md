@@ -28,3 +28,4 @@ HeatexMc its minecraft server it have classic games and more enter from https://
 - AboBesher (1101516744805326918)
 - Amer (1401902917946179674)
 - qAmer (1411447043846570015)
+- zzloaisaad (1399498544032907336) (محقق كونان)
