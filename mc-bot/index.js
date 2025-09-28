@@ -7,7 +7,7 @@
 
 Original Repo: https://github.com/ix1g/Mc-Bot
 License: MIT
-Hosted On: https://bssr-nodes.com
+Hosted On: https://rrhosting.eu
 */
 
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
@@ -77,3 +77,4 @@ client.on('messageCreate', async (message) => {
 });
 
 client.login(process.env.BOT_TOKEN);
+
